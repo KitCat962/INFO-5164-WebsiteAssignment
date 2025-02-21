@@ -2,7 +2,6 @@
   "name": "info-5164-websiteassignment",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\"",
     "start": "npx parcel src/*.html",
