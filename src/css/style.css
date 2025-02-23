@@ -17,8 +17,11 @@ body * {
     --secondary: #666666;
     --shaded-secondary: #3f3f3f;
     --on-secondary: white;
-    --background: #eeeeee;
-    --shaded-background: #b3b3b3;
+    --tertiary: #eeeeee;
+    --shaded-tertiary: #b3b3b3;
+    --on-tertiary: black;
+    --background: white;
+    --shaded-background: white;
     --on-background: black;
     --positive: #16c24a;
     --shaded-positive: #158a38;
@@ -76,13 +79,15 @@ input[type=text]:user-invalid {
     border-color: var(--shaded-negative);
 }
 
-input[type=text]+.invalidbox {
+input[type=text]+.invalidbox,
+select+.invalidbox {
     display: none;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
 
-input[type=text]:user-invalid+.invalidbox {
+input[type=text]:user-invalid+.invalidbox,
+select:user-invalid+.invalidbox {
     display: block;
 }
 
@@ -111,14 +116,18 @@ input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     /* Centers thumb on the track */
-    margin-top:  -0.6em;
+    margin-top: -0.6em;
 }
+
 input[type=range]::-moz-range-thumb {
-    border: none; /*Removes extra border that FF applies*/
-    border-radius: 0; /*Removes default border-radius that FF applies*/
+    border: none;
+    /*Removes extra border that FF applies*/
+    border-radius: 0;
+    /*Removes default border-radius that FF applies*/
 }
+
 input[type=range]::-webkit-slider-thumb,
-input[type=range]::-moz-range-thumb{
+input[type=range]::-moz-range-thumb {
     background-color: var(--primary);
     border-color: var(--shaded-primary);
     border-style: solid;
@@ -155,27 +164,37 @@ button.secondary:active:hover {
 }
 
 /* Custom Classes */
-.flex{
+.flex {
     display: flex;
 }
+
 .flex.center {
     align-items: center;
     justify-content: center;
 }
+
 .flex.row {
     flex-direction: row;
 }
-.flex.gap-sm{
+
+.flex.column {
+    flex-direction: column;
+}
+
+.flex.gap-sm {
     gap: 1em
 }
-.flex.gap-md{
+
+.flex.gap-md {
+    gap: 2em
+}
+
+.flex.gap-lg {
     gap: 3em
 }
-.flex.gap-lg{
-    gap: 5em
-}
+
 .spacer {
-    flex:1
+    flex: 1
 }
 
 .infobox {
@@ -192,30 +211,23 @@ button.secondary:active:hover {
     color: var(--on-negative);
 }
 
+.box {
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 1em;
+    padding: 1em;
+    gap: 1em;
+    background-color: var(--tertiary);
+    color: var(--on-tertiary);
+}
+
 .rating_display {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
-.rating_display>*{
+
+.rating_display>* {
     font-size: 2em;
-}
-
-.test {
-    border-color: black;
-    border-width: 2px;
-    border-style: solid;
-    border-radius: 1em;
-    display: flex;
-    flex-direction: row;
-    padding: 1em;
-    gap: 1em;
-    justify-content: space-evenly;
-    align-items:center;
-}
-
-.test>* {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
 }
