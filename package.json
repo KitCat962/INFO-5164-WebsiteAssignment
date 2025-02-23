@@ -7,7 +7,7 @@
     "start": "npx parcel --dist-dir build src/*.html",
     "lint": "npx eslint src/",
     "build": "npx parcel build --dist-dir build src/*.html",
-    "build-pages": "set SUB_DOMAIN=/INFO-5164-WebsiteAssignment&& npx parcel build --dist-dir build --public-url /INFO-5164-WebsiteAssignment src/*.html"
+    "build-pages": "SUB_DOMAIN=/INFO-5164-WebsiteAssignment&& npx parcel build --dist-dir build --public-url /INFO-5164-WebsiteAssignment src/*.html"
   },
   "author": "",
   "license": "ISC",
