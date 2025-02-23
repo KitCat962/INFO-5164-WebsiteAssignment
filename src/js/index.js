@@ -4,6 +4,7 @@ import { auth } from "./firebase";
 
 auth.onAuthStateChanged(user => {
     if (user)
+        // eslint-disable-next-line no-undef
         window.location = process.env.NODE_ENV === "production"?`${process.env.SUB_DOMAIN}/app`:'/app'
 })
 
