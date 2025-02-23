@@ -27,7 +27,7 @@ const div_bookcontainer = document.getElementById('div_bookcontainer')
 auth.onAuthStateChanged(user => {
     if (!user)
         // eslint-disable-next-line no-undef
-        window.location = process.env.NODE_ENV === "production"?`${process.env.SUB_DOMAIN}/`:'/'
+        window.location = process.env.NODE_ENV === "production"?`/${process.env.SUB_DOMAIN}/`:'/'
     else {
         p_user.textContent = `Logged in as ${user.displayName}`
         addBookChangeListener(renderBooks)
