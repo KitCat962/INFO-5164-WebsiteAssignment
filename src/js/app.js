@@ -2,9 +2,12 @@ import { signOut } from "firebase/auth"
 import { auth, db } from "./firebase"
 import { doc, getDoc } from "firebase/firestore"
 
+const p_user = document.getElementById('p_user')
 auth.onAuthStateChanged(user => {
     if (!user)
         window.location = "/"
+    else
+        p_user.textContent = `Logged in as ${user.displayName}`
 })
 
 const btn_logout = document.getElementById('btn_logout')

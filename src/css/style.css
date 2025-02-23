@@ -155,10 +155,27 @@ button.secondary:active:hover {
 }
 
 /* Custom Classes */
-.flex.center {
+.flex{
     display: flex;
+}
+.flex.center {
     align-items: center;
     justify-content: center;
+}
+.flex.row {
+    flex-direction: row;
+}
+.flex.gap-sm{
+    gap: 1em
+}
+.flex.gap-md{
+    gap: 3em
+}
+.flex.gap-lg{
+    gap: 5em
+}
+.spacer {
+    flex:1
 }
 
 .infobox {
