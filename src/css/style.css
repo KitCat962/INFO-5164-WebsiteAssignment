@@ -92,7 +92,8 @@ select:user-invalid+.invalidbox {
 }
 
 select {
-    appearance: none
+    /* appearance: none */
+    background-color: white;
 }
 
 input[type=range] {
@@ -182,11 +183,11 @@ button.secondary:active:hover {
 }
 
 .flex.gap-sm {
-    gap: 1em
+    gap: 0.5em
 }
 
 .flex.gap-md {
-    gap: 2em
+    gap: 1em
 }
 
 .flex.gap-lg {

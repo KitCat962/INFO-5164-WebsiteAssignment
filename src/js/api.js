@@ -9,7 +9,8 @@ export async function addBook(name, author, genres, rating, url) {
             author,
             genres,
             rating,
-            url: url ? url : null
+            url: url ? url : null,
+            status: "Reading"
         })
         return result.id
     } catch {
@@ -35,7 +36,7 @@ export async function getBooksByGenre(genre) {
 }
 export async function setBookStatus(id, status) {
     if (!auth.currentUser) return false
-    await updateDoc(doc(db, `users/${auth.currentUser.uid}/books`, id),{
+    await updateDoc(doc(db, `users/${auth.currentUser.uid}/books`, id), {
         status: status
     })
     return true
@@ -45,7 +46,7 @@ export function addBookChangeListener(fn) {
     onSnapshot(collection(db, `users/${auth.currentUser.uid}/books`), snapshot => fn(formatCollectionData(snapshot)))
 }
 function formatCollectionData(snapshot) {
-    return snapshot.docs.map(doc=>({
+    return snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
     }))
