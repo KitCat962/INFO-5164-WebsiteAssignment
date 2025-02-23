@@ -26,7 +26,7 @@ const div_bookcontainer = document.getElementById('div_bookcontainer')
 
 auth.onAuthStateChanged(user => {
     if (!user)
-        window.location = "/"
+        window.location = process.env.NODE_ENV === "production"?`${process.env.SUB_DOMAIN}/`:'/'
     else {
         p_user.textContent = `Logged in as ${user.displayName}`
         addBookChangeListener(renderBooks)

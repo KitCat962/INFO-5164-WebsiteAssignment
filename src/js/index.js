@@ -1,10 +1,10 @@
 
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import {  auth } from "./firebase";
+import { auth } from "./firebase";
 
-auth.onAuthStateChanged(user=>{
-    if(user)
-        window.location = "/app"
+auth.onAuthStateChanged(user => {
+    if (user)
+        window.location = process.env.NODE_ENV === "production"?`${process.env.SUB_DOMAIN}/app`:'/app'
 })
 
 const googleAuth = new GoogleAuthProvider();
