@@ -2,6 +2,7 @@ import { signOut } from "firebase/auth"
 import { auth, db } from "./firebase"
 import { doc, getDoc } from "firebase/firestore"
 import { addBook, addBookChangeListener, removeBook, setBookStatus } from "./api"
+import { bindAI } from "./ai"
 
 const statuses = [
     "Reading",
@@ -21,6 +22,9 @@ const select_genres = document.getElementById('select_genres')
 const div_rating = document.getElementById('div_rating')
 const range_rating = document.getElementById('range_rating')
 const text_url = document.getElementById('text_url')
+const div_formerror = document.getElementById('div_formerror')
+div_formerror.style.display = "none"
+const p_formerror = document.getElementById('p_formerror')
 
 const div_bookcontainer = document.getElementById('div_bookcontainer')
 
@@ -53,6 +57,7 @@ range_rating.addEventListener('input', function () {
 })
 form_addbook.addEventListener('submit', function (event) {
     event.preventDefault()
+    div_formerror.style.display = "none"
     text_bookname.setCustomValidity('')
     text_bookauthor.setCustomValidity('')
     select_genres.setCustomValidity('')
@@ -85,8 +90,13 @@ form_addbook.addEventListener('submit', function (event) {
 
     addBook(name, author, genres, rating, url)
         .then(() => form_addbook.reset())
-        .catch()
+        .catch(err => {
+            div_formerror.style.display = "block"
+            p_formerror.textContent = JSON.stringify(err)
+        })
 });
+
+bindAI(document.getElementById('ai_binding'))
 
 function renderBooks(books) {
     console.log(books)

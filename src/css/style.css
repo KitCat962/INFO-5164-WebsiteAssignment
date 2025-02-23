@@ -232,3 +232,39 @@ button.secondary:active:hover {
 .rating_display>* {
     font-size: 2em;
 }
+
+.ai_mount {
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
+    max-width: 20em;
+    min-width: 20em;
+}
+.ai.container {
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 1em;
+    padding: 1em;
+    gap: 1em;
+    background-color: var(--tertiary);
+}
+.ai.message_container {
+    min-height: none;
+    max-height: 30em;
+    overflow-y: scroll;
+}
+.ai.message{
+    color: black;
+    border-width: 0;
+    border-top-width: 1px;
+    border-color: var(--on-tertiary);
+    border-style: solid;
+    padding: 0.5em;
+}
+.ai.message.send {
+    text-align: right;
+}
+.ai.message.recieve {
+    text-align: left;
+}
