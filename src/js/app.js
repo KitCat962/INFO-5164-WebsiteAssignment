@@ -1,6 +1,6 @@
 import { signOut } from "firebase/auth"
 import { auth, db } from "./firebase"
-import {  doc, getDoc } from "firebase/firestore"
+import { doc, getDoc } from "firebase/firestore"
 import { addBook, addBookChangeListener, removeBook, setBookStatus } from "./api"
 
 const statuses = [
@@ -25,9 +25,10 @@ const text_url = document.getElementById('text_url')
 const div_bookcontainer = document.getElementById('div_bookcontainer')
 
 auth.onAuthStateChanged(user => {
+    console.log(user)
     if (!user)
         // eslint-disable-next-line no-undef
-        window.location = process.env.NODE_ENV === "production"?`/${process.env.SUB_DOMAIN}/`:'/'
+        window.location = process.env.NODE_ENV === "production" ? `/INFO-5164-WebsiteAssignment/` : '/'
     else {
         p_user.textContent = `Logged in as ${user.displayName}`
         addBookChangeListener(renderBooks)

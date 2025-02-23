@@ -3,9 +3,10 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "./firebase";
 
 auth.onAuthStateChanged(user => {
+    console.log(user)
     if (user)
         // eslint-disable-next-line no-undef
-        window.location = process.env.NODE_ENV === "production"?`/${process.env.SUB_DOMAIN}/app`:'/app'
+        window.location = process.env.NODE_ENV === "production" ? `/INFO-5164-WebsiteAssignment/app` : '/app'
 })
 
 const googleAuth = new GoogleAuthProvider();
