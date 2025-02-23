@@ -1,0 +1,204 @@
+/* Reset */
+
+body,
+body * {
+    margin: 0;
+    padding: 0;
+    display: block;
+    /* font: 1em sans-serif; */
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: normal;
+
+
+    --primary: #ffccee;
+    --shaded-primary: #c069a3;
+    --on-primary: black;
+    --secondary: #666666;
+    --shaded-secondary: #3f3f3f;
+    --on-secondary: white;
+    --background: #eeeeee;
+    --shaded-background: #b3b3b3;
+    --on-background: black;
+    --positive: #16c24a;
+    --shaded-positive: #158a38;
+    --on-positive: white;
+    --negative: #c22929;
+    --shaded-negative: #882424;
+    --on-negative: white;
+}
+
+/* Base Elements */
+
+body {
+    background-color: var(--background);
+    width: 100%;
+    height: max-content;
+}
+
+header {
+    padding: 1em;
+    margin-bottom: 0.5em;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+
+/* Inputs */
+input[type=text] {
+    padding: 0.2em;
+    border-radius: 0.5em;
+    border-width: 0.2em;
+    border-style: solid;
+    border-color: var(--primary);
+}
+
+.invalidbox {
+    background-color: var(--negative);
+    border-color: var(--shaded-negative);
+    color: var(--on-negative);
+    padding: 0.2em;
+    border-width: 0.2em;
+    border-style: solid;
+    border-radius: 0.5em;
+}
+
+input[type=text]:user-invalid {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-color: var(--shaded-negative);
+}
+
+input[type=text]+.invalidbox {
+    display: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+input[type=text]:user-invalid+.invalidbox {
+    display: block;
+}
+
+select {
+    appearance: none
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type=range]::-webkit-slider-runnable-track,
+input[type=range]::-moz-range-track {
+    background: var(--primary);
+    height: 0.6em;
+    border-radius: 0.4em;
+    border-color: var(--shaded-primary);
+    border-style: solid;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    /* Centers thumb on the track */
+    margin-top:  -0.6em;
+}
+input[type=range]::-moz-range-thumb {
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 0; /*Removes default border-radius that FF applies*/
+}
+input[type=range]::-webkit-slider-thumb,
+input[type=range]::-moz-range-thumb{
+    background-color: var(--primary);
+    border-color: var(--shaded-primary);
+    border-style: solid;
+    border-radius: 1em;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* Buttons */
+
+button,
+button.primary {
+    border-radius: 1em;
+    border-style: none;
+    /* border-style: solid; */
+    border-color: unset;
+    padding: 1em;
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+
+button:active:hover,
+button.primary:active:hover {
+    background-color: var(--shaded-primary);
+}
+
+button.secondary {
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+}
+
+button.secondary:active:hover {
+    background-color: var(--shaded-secondary);
+}
+
+/* Custom Classes */
+.flex.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infobox {
+    padding: 1em;
+    background-color: var(--background);
+    color: var(--on-background);
+    border-width: 2px;
+    border-color: var(--shaded-background);
+    border-style: solid;
+}
+
+.error {
+    background-color: var(--negative);
+    color: var(--on-negative);
+}
+
+.rating_display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.rating_display>*{
+    font-size: 2em;
+}
+
+.test {
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    gap: 1em;
+    justify-content: space-evenly;
+    align-items:center;
+}
+
+.test>* {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}

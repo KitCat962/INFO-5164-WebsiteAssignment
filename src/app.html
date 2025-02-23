@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katt Book Tracker</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer type="module" src="./js/app.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Katt Book Tracker</h1>
+        <button id="btn_logout" class="secondary">Logout</button>
+    </header>
+    <main class="flex center">
+        <form id="form_addbook" class="test" novalidate>
+            <div>
+                <div>
+                    <label for="text_bookname">Name</label>
+                    <input name="name" type="text" id="text_bookname" />
+                    <p class="invalidbox">Name cannot be empty</p>
+                </div>
+                <div>
+                    <label for="text_bookauthor">Author</label>
+                    <input name="author" type="text" id="text_bookauthor" />
+                    <p class="invalidbox">Author cannot be empty</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label for="select_genres">Genres (Select all that apply)</label>
+                    <select name="genres" id="select_genres" multiple></select>
+                </div>
+                <div>
+                    <label for="text_url">Url (Optional)</label>
+                    <input name="url" type="text" id="text_url" />
+                </div>
+            </div>
+            <div>
+                <label for="range_rating"></label>
+                <div>
+                    <div id="div_rating" class="rating_display"></div>
+                    <input name="rating" type="range" id="range_rating" min="0" max="5" value="3" />
+                </div>
+                <button type="submit">Add Book</button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
