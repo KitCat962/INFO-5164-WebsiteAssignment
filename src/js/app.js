@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth"
 import { auth, db } from "./firebase"
-import { collection, doc, getDoc, onSnapshot } from "firebase/firestore"
-import { addBook, addBookChangeListener, getBooks, removeBook, setBookStatus } from "./api"
+import {  doc, getDoc } from "firebase/firestore"
+import { addBook, addBookChangeListener, removeBook, setBookStatus } from "./api"
 
 const statuses = [
     "Reading",
@@ -12,7 +12,7 @@ const statuses = [
 
 const p_user = document.getElementById('p_user')
 const btn_logout = document.getElementById('btn_logout')
-btn_logout.addEventListener('click', event => signOut(auth))
+btn_logout.addEventListener('click', () => signOut(auth))
 
 const form_addbook = document.getElementById('form_addbook')
 const text_bookname = document.getElementById('text_bookname')
@@ -148,7 +148,7 @@ function renderBooks(books) {
 
             const removeBookButton = document.createElement('button')
             removeBookButton.textContent = "Delete Book"
-            removeBookButton.addEventListener('click', async event => {
+            removeBookButton.addEventListener('click', async () => {
                 const result = confirm(`Are you sure you want to delete "${book.name}"?`)
                 if (result)
                     removeBook(book.id)

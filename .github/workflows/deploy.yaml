@@ -23,7 +23,7 @@ jobs:
           fi
       
       - name: Run linting
-        run: npm run lint || true
+        run: npm run lint
 
       - name: Build Project
         run: |
