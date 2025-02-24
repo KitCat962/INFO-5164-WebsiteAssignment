@@ -164,6 +164,15 @@ button.secondary:active:hover {
     background-color: var(--shaded-secondary);
 }
 
+button.tertiary {
+    background-color: var(--tertiary);
+    color: var(--on-tertiary);
+}
+
+button.tertiary:active:hover {
+    background-color: var(--shaded-tertiary);
+}
+
 /* Custom Classes */
 .flex {
     display: flex;
@@ -195,7 +204,7 @@ button.secondary:active:hover {
 }
 
 .spacer {
-    flex: 1
+    flex: 1 1
 }
 
 .infobox {
@@ -245,14 +254,20 @@ button.secondary:active:hover {
     border-width: 2px;
     border-style: solid;
     border-radius: 1em;
-    padding: 1em;
+    padding: 0em;
     gap: 1em;
     background-color: var(--tertiary);
+    max-height: 30em;
+    transition: max-height 2s;
+    overflow: hidden;
+}
+.ai.container.closed {
+    max-height: 2.5em;
 }
 .ai.message_container {
-    min-height: none;
-    max-height: 30em;
+    height: 20em;
     overflow-y: scroll;
+    padding: 0.5em;
 }
 .ai.message{
     color: black;
