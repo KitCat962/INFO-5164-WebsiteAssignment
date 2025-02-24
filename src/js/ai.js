@@ -78,7 +78,7 @@ export function bindAI(element) {
         textBox.focus()
     }
 
-    openCloseButton.addEventListener('click', event => {
+    openCloseButton.addEventListener('click', () => {
         const closed = container.className.includes('closed')
         container.className = "ai container " + (closed ? '' : 'closed');
         openCloseButton.textContent = closed?'v':'>'
